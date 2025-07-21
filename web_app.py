@@ -120,8 +120,7 @@ with st.sidebar:
     # Initialize monitor when profile changes
     if st.session_state.monitor is None or (weight != st.session_state.get('weight', 150) or 
                                           gender != st.session_state.get('gender', 'male')):
-        st.session_state.weight = weight
-        st.session_state.gender = gender
+        # No need to assign to st.session_state.weight or st.session_state.gender
         initialize_monitor()
     
     st.markdown("---")
