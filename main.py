@@ -112,8 +112,17 @@ def simulation_mode():
     drinks = ['beer', 'beer', 'wine', 'liquor']
     drink_index = 0
     
+    previous_time = 0
     for time_minutes, message in timeline:
         print(f"\n[{time_minutes:3d} min] {message}")
+        
+        # Simulate time progression by adjusting the first drink time
+        if time_minutes > 0 and monitor.first_drink_time:
+            # Move the first drink time back by the time difference since last event
+            from datetime import timedelta
+            time_diff = time_minutes - previous_time
+            monitor.first_drink_time = monitor.first_drink_time - timedelta(minutes=time_diff)
+            monitor._update_bac()
         
         if drink_index < len(drinks):
             monitor.add_drink(drinks[drink_index])
@@ -127,6 +136,8 @@ def simulation_mode():
         # Wait for next event
         if time_minutes < 135:
             time.sleep(30)  # 30 seconds between events
+        
+        previous_time = time_minutes
     
     # Show final results
     print("\n" + "=" * 50)
