@@ -235,4 +235,4 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Remember**: Always drink responsibly and never drive under the influence of alcohol. This tool is designed to promote safety and awareness, not to enable risky behavior. 
+**Remember**: Always drink responsibly and never drive under the influence of alcohol. This tool is designed to promote safety and awareness, not to enable risky behavior :D
